@@ -1,0 +1,59 @@
+<!-- <label>Your Image File
+  <input type="file" name="myImage" accept="image/png, image/gif, image/jpeg" #fileInput />
+</label>
+<button (click)="uploadFile(fileInput)">Upload</button> -->
+<div class="container">
+  <h1>Hello There is no cloud It is just someone else's computer</h1>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="input-group mb-3">
+        <div class="custom-file">
+          <input
+            type="file"
+            class="custom-file-input"
+            id="imageFile"
+            (change)="onFileSelected($event)"
+          />
+          <label
+            class="custom-file-label bg-primary text-white rounded-pill px-3 py-2"
+            for="imageFile"
+          ></label>
+        </div>
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button" (click)="uploadImage()">
+            Upload Image
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <mat-spinner *ngIf="isLoading"></mat-spinner>
+      <div *ngIf="word">
+        <h1>Result:</h1>
+        <h3>
+          <b>Text extracted from you image : {{ word }}</b>
+        </h3>
+        <h3>
+          <b>Converted Text : {{ convertedWord }}</b>
+        </h3>
+        <select (change)="update($event)">
+          <option *ngFor="let country of countryList" [value]="country.key">
+            {{ country.value }}
+          </option>
+        </select>
+        <button (click)="translate()">Convert</button>
+        <h3 *ngIf="translatedtext"><b>Translated Text: {{ translatedtext }}</b></h3>
+        <div *ngIf="audioURL">
+          <h2>Speech Synthesis</h2>
+          <audio controls >
+            <source [src]="audioURL" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- app.component.html -->

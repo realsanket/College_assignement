@@ -1,0 +1,2 @@
+docker build -t word-translator .
+docker run -v $(pwd):/code/app -p 4204:80 -e TRANSLATOR_TEXT_SUBSCRIPTION_KEY="your_key" -e TRANSLATOR_TEXT_ENDPOINT="your_endpoint" -e TRANSLATOR_TEXT_LOCATION="replace_your_region" -it word-translator --reload
